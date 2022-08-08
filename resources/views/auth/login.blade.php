@@ -53,7 +53,6 @@
                                 <div class="mb-3">
                                     <label class="form-label d-flex justify-content-between">
                                         <span>Password</span>
-                                        <a href="#" class="text-primary font">Forget Password?</a>
                                     </label>
                                     <div class="form-group input-affix flex-column">
                                         <label class="d-none">Password</label>
@@ -61,6 +60,13 @@
                                             name="password" required autocomplete="current-password">
                                         <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
                                     </div>
+                                    <label class="form-label d-flex justify-content-between">
+                                        <label for="remember_me">
+                                            <input id="remember_me" type="checkbox" name="remember">
+                                            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                        </label>
+                                        <a href="{{ route('password.request') }}" class="text-primary font">Forget Password?</a>
+                                    </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Log In</button>
                             </form>
