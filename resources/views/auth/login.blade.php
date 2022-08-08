@@ -44,10 +44,11 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <form>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Username</label>
-                                    <input class="form-control" />
+                                    <label class="form-label">Email</label>
+                                    <input type="email"  name="email" :value="old('email')" required autofocus  class="form-control" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label d-flex justify-content-between">
@@ -56,7 +57,8 @@
                                     </label>
                                     <div class="form-group input-affix flex-column">
                                         <label class="d-none">Password</label>
-                                        <input formcontrolname="password" class="form-control" type="password">
+                                        <input formcontrolname="password" class="form-control" type="password"
+                                            name="password" required autocomplete="current-password">
                                         <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
                                     </div>
                                 </div>

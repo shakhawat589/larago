@@ -183,12 +183,16 @@
                                 <span>Support</span>
                             </div>
                         </a>
-                        <a href="javascript:void(0)" class="dropdown-item">
+                        <button onclick="logout()" class="dropdown-item">
                             <div class="d-flex align-items-center"><i
                                     class="font-size-lg me-2 feather icon-power"></i>
                                 <span>Sign Out</span>
                             </div>
-                        </a>
+                        </button>
+
+                        <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
@@ -196,3 +200,9 @@
     </div>
 </div>
 <!-- Header END -->
+
+<script>
+    function logout(){
+       document.getElementById('logoutForm').submit();
+    }
+</script>
