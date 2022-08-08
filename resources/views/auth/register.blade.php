@@ -44,21 +44,43 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <form>
+                            @if ($errors->any())                                
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger">{{ $error }}</div>
+                                @endforeach
+                            @endif
+
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+
                                 <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Name"/>
+                                    <input name="name" class="form-control" required placeholder="Name"/>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="email" class="form-control" placeholder="Email"/>
+                                    <input name="email" type="email" required class="form-control" placeholder="Email"/>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" class="form-control" placeholder="Password"/>
+                                    <input name="password" type="password" required class="form-control" placeholder="Password"/>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" class="form-control" placeholder="Confirm Password"/>
+                                    <input name="password_confirmation" required type="password" class="form-control" placeholder="Confirm Password"/>
+                                </div>
+                                <div class="form-group mb-3">
+                                    
+                                    <select name="country" required class="form-control" id="cars">
+                                        @php
+                                            $countries = json_decode(Countries::getList('en', 'json'), true);
+                                        @endphp
+                                        @foreach ($countries as $country)
+                                            
+                                        <option >Select Country</option>
+                                        <option value="{{$country}}">{{$country}}</option>
+                                        @endforeach
+                                        
+                                    </select>  
                                 </div>
                                 
-                                <button type="submit" class="btn btn-primary w-100">Log In</button>
+                                <button type="submit" class="btn btn-primary w-100">Signup</button>
                             </form>
                             <div class="divider">
                                 <span class="divider-text text-muted">or Sign up with</span>
