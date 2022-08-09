@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\backend\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,7 @@ require __DIR__.'/auth.php';
 
 Route::group(['as' => 'app.', 'prefix' => 'app', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+
+    //user management
+    Route::resource('user', UserController::class);
 });

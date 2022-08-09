@@ -10,7 +10,7 @@
     </div>
     <ul class="nav-menu">
         <li class="nav-menu-item @if (request()->is('app/dashboard')) router-link-active @endif ">
-            <a href="index-2.html">
+            <a href="{{url('app/dashboard')}}">
                 <i class="feather icon-home"></i>
                 <span class="nav-menu-item-title">Dashboard</span>
             </a>
@@ -19,13 +19,14 @@
         
         <li class="nav-submenu">
             <a class="nav-submenu-title">
-                <i class="feather icon-slash"></i>
+                <i class="icon-user-plus feather"></i>
+                
                 <span>User Management</span>
                 <i class="nav-submenu-arrow"></i>
             </a>
             <ul class="nav-menu menu-collapse">
                 <li class="nav-menu-item">
-                    <a href="error.html">Users</a>
+                    <a href="{{url('app/user')}}">Users</a>
                 </li>
                 <li class="nav-menu-item">
                     <a href="error-v2.html">Roles</a>
