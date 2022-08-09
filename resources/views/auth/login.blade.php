@@ -75,19 +75,19 @@
                             </div>
                             <div class="row">
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('google.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-1.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('facebook.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-2.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('twitter.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-3.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="text-center mt-4">

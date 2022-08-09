@@ -34,6 +34,18 @@ Route::middleware('guest')->group(function () {
                 ->name('password.update');
 });
 
+//OAuth Routes
+Route::middleware('guest')->group(function () {
+    Route::get('google/login', [RegisteredUserController::class, 'googleLogin'])
+                ->name('google.login');
+    Route::get('facebook/login', [RegisteredUserController::class, 'facebookLogin'])
+                ->name('facebook.login');
+    Route::get('twitter/login', [RegisteredUserController::class, 'twitterLogin'])
+                ->name('twitter.login');
+
+    Route::post('facebook/login/callback', [RegisteredUserController::class, 'facebookLoginCallBack']);
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
