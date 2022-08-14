@@ -62,10 +62,13 @@ class RegisteredUserController extends Controller
     public function facebookLogin(){
         return Socialite::driver('facebook')->redirect();
     }
+    public function twitterLogin(){
+        return Socialite::driver('twitter')->redirect();
+    }
 
     public function googleLoginCallBack(){
         $data = Socialite::driver('google')->user();
-        $provider = 'facebook';
+        $provider = 'google';
         $user = $this->userCreate($data, $provider);
         Auth::login($user);
         return redirect(RouteServiceProvider::HOME);
@@ -73,6 +76,13 @@ class RegisteredUserController extends Controller
     public function facebookLoginCallBack(){
         $data = Socialite::driver('facebook')->user();
         $provider = 'facebook';
+        $user = $this->userCreate($data, $provider);
+        Auth::login($user);
+        return redirect(RouteServiceProvider::HOME);
+    }
+    public function twitterLoginCallBack(){
+        $data = Socialite::driver('facebook')->user();
+        $provider = 'twitter';
         $user = $this->userCreate($data, $provider);
         Auth::login($user);
         return redirect(RouteServiceProvider::HOME);
