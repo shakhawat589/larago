@@ -43,7 +43,7 @@ Route::middleware('guest')->group(function () {
     Route::get('twitter/login', [RegisteredUserController::class, 'twitterLogin'])
                 ->name('twitter.login');
 
-    Route::post('facebook/login/callback', [RegisteredUserController::class, 'facebookLoginCallBack']);
+    Route::get('facebook/login/callback', [RegisteredUserController::class, 'facebookLoginCallBack']);
 });
 
 Route::middleware('auth')->group(function () {
