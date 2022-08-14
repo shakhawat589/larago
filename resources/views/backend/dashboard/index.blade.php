@@ -1,8 +1,12 @@
 @extends('backend.master')
 
 @section('title')
-This is title
+Dashboard | {{env('APP_NAME')}}
 @endsection
+
+@push('page_css')
+  <link href="{{ asset('assets/vendors/apexcharts/dist/apexcharts.css') }}" rel="stylesheet">
+@endpush
 
 @push('css')
     
@@ -569,6 +573,10 @@ This is title
 
 @endsection
 
+@push('page_js')
+    <script src="{{ asset('assets/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>  
+@endpush
 @push('js')
     
 @endpush

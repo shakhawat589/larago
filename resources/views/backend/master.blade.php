@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.ico') }}">
 
     <!-- page css -->
-    <link href="{{ asset('assets/vendors/apexcharts/dist/apexcharts.css') }}" rel="stylesheet">
+    @stack('page_css')
 
     <!-- Core css -->
     <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet">
@@ -129,8 +129,7 @@
     <script src="{{ asset('assets/js/vendors.min.js') }}"></script>
 
     <!-- page js -->
-    <script src="{{ asset('assets/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+    @stack('page_js')
 
     <!-- Core JS -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>

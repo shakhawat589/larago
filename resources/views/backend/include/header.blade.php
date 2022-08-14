@@ -160,8 +160,8 @@
                                     <img src="{{ asset('assets/images/avatars/thumb-1.jpg') }}" alt="">
                                 </div>
                                 <div class="d-flex flex-column ms-1">
-                                    <span class="fw-bold text-dark">Julio Baker</span>
-                                    <span class="font-size-sm">Julio@themenate.com</span>
+                                    <span class="fw-bold text-dark">{{auth()->user()->name}}</span>
+                                    <span class="font-size-sm">{{auth()->user()->email}}</span>
                                 </div>
                             </div>
                         </div>
