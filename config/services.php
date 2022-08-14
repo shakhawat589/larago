@@ -34,14 +34,13 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://example.com/callback-url',
+        'redirect' => 'http://localhost:8000/google/login/callback',
     ],
 
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => 'http://localhost:8000/facebook/login/callback',
-        // 'redirect' => 'http://localhost:8000/facebook/login/callback',
     ],
 
     'twitter' => [

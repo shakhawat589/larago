@@ -43,7 +43,14 @@
                                 <img alt="logo" class="img-fluid" src="{{asset('assets/images/logo/logo.png')}}" style="height: 70px;">
                             </div>
                         </div>
+                        
                         <div class="mt-4">
+                            <!-- Session Status -->
+                            <x-auth-session-status class="mb-4" :status="session('status')" />
+    
+                            <!-- Validation Errors -->
+                            <x-error-alert class="mb-4" :errors="$errors" />
+                            
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group mb-3">
@@ -57,7 +64,7 @@
                                     <div class="form-group input-affix flex-column">
                                         <label class="d-none">Password</label>
                                         <input formcontrolname="password" class="form-control" type="password"
-                                            name="password" required autocomplete="current-password">
+                                            name="password"  autocomplete="current-password">
                                         <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
                                     </div>
                                     <label class="form-label d-flex justify-content-between">

@@ -44,11 +44,11 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            @if ($errors->any())                                
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger">{{ $error }}</div>
-                                @endforeach
-                            @endif
+                             <!-- Session Status -->
+                            <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                            <!-- Validation Errors -->
+                            <x-error-alert class="mb-4" :errors="$errors" />
 
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
@@ -68,12 +68,12 @@
                                 <div class="form-group mb-3">
                                     
                                     <select name="country" required class="form-control" id="cars">
+                                        <option value="">Select Country</option>
                                         @php
                                             $countries = json_decode(Countries::getList('en', 'json'), true);
                                         @endphp
                                         @foreach ($countries as $country)
                                             
-                                        <option >Select Country</option>
                                         <option value="{{$country}}">{{$country}}</option>
                                         @endforeach
                                         
@@ -87,19 +87,19 @@
                             </div>
                             <div class="row">
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('google.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-1.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('facebook.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-2.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col px-1">
-                                    <button class="btn btn-outline-secondary w-100">
+                                    <a href="{{route('twitter.login')}}" class="btn btn-outline-secondary w-100">
                                         <img src="{{asset('assets/images/thumbs/thumb-3.png')}}" alt="" style="max-width: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="text-center mt-4">

@@ -56,27 +56,37 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
+    public function googleLogin(){
+        return Socialite::driver('google')->redirect();
+    }
     public function facebookLogin(){
         return Socialite::driver('facebook')->redirect();
     }
 
+    public function googleLoginCallBack(){
+        $data = Socialite::driver('google')->user();
+        $provider = 'facebook';
+        $user = $this->userCreate($data, $provider);
+        Auth::login($user);
+        return redirect(RouteServiceProvider::HOME);
+    }
     public function facebookLoginCallBack(){
         $data = Socialite::driver('facebook')->user();
-
-        dd($data);
-
-        $user = $this->userCreate($data);
-        
+        $provider = 'facebook';
+        $user = $this->userCreate($data, $provider);
         Auth::login($user);
         return redirect(RouteServiceProvider::HOME);
     }
 
-    protected function userCreate($data){
+    protected function userCreate($data, $provider){
         $user = User::updateOrCreate([
-            'oauth_id' => $data->id,
+            'email' => $data->email,
         ], [
             'name' => $data->name,
             'email' => $data->email,
+            'oauth_id' => $data->id,
+            'password' => '',
+            'oauth_provider' => $provider,
             'oauth_token' => $data->token,
             'oauth_refresh_token' => $data->refreshToken,
         ]);
